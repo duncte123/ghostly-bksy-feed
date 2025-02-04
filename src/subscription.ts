@@ -167,15 +167,27 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // cannot get TS to work with create.record.labels - fix later
         const plainTextLabels = JSON.stringify(create.record.labels ?? '{}')
 
-        const postIsNsfw =
-          plainTextLabels.includes('porn') ||
-          plainTextLabels.includes('nudity') ||
-          plainTextLabels.includes('sexual')
+        const postIsNsfw = false
+        //plainTextLabels.includes('porn') ||
+        //plainTextLabels.includes('nudity') ||
+        //plainTextLabels.includes('sexual') ||
+        //plainTextLabels.includes('graphic-media')
+
+        let allImagesHaveAltText = true
+
+        if (create.record.embed?.images instanceof Array) {
+          create.record.embed.images.map((image) => {
+            if (!image.alt) {
+              allImagesHaveAltText = false
+            }
+          })
+        }
 
         return (
           (matchText.some((term) => txt.includes(term)) ||
             matchPatterns.some((pattern) => pattern.test(txt)) ||
             matchUsers.includes(create.author)) &&
+          allImagesHaveAltText &&
           !bannedUsers.includes(create.author) &&
           !bannedText.some((term) => txt.includes(term)) &&
           !postIsNsfw
@@ -186,12 +198,12 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         console.log(`Found post by ${create?.author}: ${create?.record?.text}`)
 
         //console.log(JSON.stringify(create))
+        //console.log(JSON.stringify(create.record.labels))
+        console.log(JSON.stringify(create.record.embed?.images))
 
         return {
           uri: create.uri,
           cid: create.cid,
-          replyParent: create.record?.reply?.parent.uri ?? null,
-          replyRoot: create.record?.reply?.root.uri ?? null,
           indexedAt: new Date().toISOString(),
         }
       })

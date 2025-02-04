@@ -1,14 +1,16 @@
 import dotenv from 'dotenv'
-import { AtpAgent, BlobRef } from '@atproto/api'
+import inquirer from 'inquirer'
+import { AtpAgent, BlobRef, AppBskyFeedDefs } from '@atproto/api'
 import fs from 'fs/promises'
 import { ids } from '../src/lexicon/lexicons'
 
 const run = async () => {
-  dotenv.config()
-
-  // YOUR bluesky handle
+  dotenv.config() // YOUR bluesky handle
   // Ex: user.bsky.social
   const handle = 'speedfeed.hijumpboots.com'
+
+  // optional custom service (null for our purposes)
+  const service = null
 
   // YOUR bluesky password, or preferably an App Password (found in your client settings)
   // Ex: abcd-1234-efgh-5678
@@ -26,11 +28,14 @@ const run = async () => {
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'Posts about video game speedrunning events, personalities, and culture. For your posts to appear in this feed, use #speedrun.\n\nMatch list: https://github.com/goth-uhaul/hjb-speedfeed/blob/main/src/subscription.ts\n\nFor issues, account exclusions, etc., reach out to @jayena.hijumpboots.com.'
+    'Posts about video game speedrunning events, personalities, and culture. For your posts to appear in this feed, use #speedrun.\n\n**To appear in the feed, all images in your post must have alt text.\n\nMatch list: https://github.com/goth-uhaul/hjb-speedfeed/blob/main/src/subscription.ts\n\nFor issues, account exclusions, etc., reach out to @jayena.hijumpboots.com.'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
   const avatar: string = 'avatar.jpg'
+
+  // Is this a video-only feed?
+  const videoOnly: boolean = false
 
   // -------------------------------------
   // NO NEED TO TOUCH ANYTHING BELOW HERE
@@ -39,11 +44,14 @@ const run = async () => {
   if (!process.env.FEEDGEN_SERVICE_DID && !process.env.FEEDGEN_HOSTNAME) {
     throw new Error('Please provide a hostname in the .env file')
   }
+
   const feedGenDid =
     process.env.FEEDGEN_SERVICE_DID ?? `did:web:${process.env.FEEDGEN_HOSTNAME}`
 
   // only update this if in a test environment
-  const agent = new AtpAgent({ service: 'https://bsky.social' })
+  const agent = new AtpAgent({
+    service: service ? service : 'https://bsky.social',
+  })
   await agent.login({ identifier: handle, password })
 
   let avatarRef: BlobRef | undefined
@@ -73,6 +81,9 @@ const run = async () => {
       description: description,
       avatar: avatarRef,
       createdAt: new Date().toISOString(),
+      contentMode: videoOnly
+        ? AppBskyFeedDefs.CONTENTMODEVIDEO
+        : AppBskyFeedDefs.CONTENTMODEUNSPECIFIED,
     },
   })
 
