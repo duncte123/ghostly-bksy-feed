@@ -167,11 +167,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // cannot get TS to work with create.record.labels - fix later
         const plainTextLabels = JSON.stringify(create.record.labels ?? '{}')
 
-        const postIsNsfw = false
-        //plainTextLabels.includes('porn') ||
-        //plainTextLabels.includes('nudity') ||
-        //plainTextLabels.includes('sexual') ||
-        //plainTextLabels.includes('graphic-media')
+        const postIsNsfw =
+          plainTextLabels.includes('porn') ||
+          plainTextLabels.includes('nudity') ||
+          plainTextLabels.includes('sexual') ||
+          plainTextLabels.includes('graphic-media')
 
         let allImagesHaveAltText = true
 
@@ -199,7 +199,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
 
         //console.log(JSON.stringify(create))
         //console.log(JSON.stringify(create.record.labels))
-        console.log(JSON.stringify(create.record.embed?.images))
+        //console.log(JSON.stringify(create.record.embed?.images))
 
         return {
           uri: create.uri,
