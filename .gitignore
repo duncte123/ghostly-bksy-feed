@@ -141,3 +141,7 @@ db.sqlite
 
 # .vs folder
 .vs
+
+# intellij
+.idea/
+*.iml
