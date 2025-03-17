@@ -6,6 +6,7 @@ The SpeedFeed is a custom BlueSky feed containing posts about video game speedru
 
 - No NSFW, please.
 - All images must have an alt text description!
+- Automated accounts that post more frequently than every hour may be banned in order to avoid flooding the feed. I am willing to work with you if your account posts a lot of pertinent information and you are willing to provide aggregated posts for the feed to latch on to. Message me if this is the case.
 - Accounts may be blacklisted from the feed at operator discretion. Be nice.
 
 # What if I want my posts excluded from the feed?

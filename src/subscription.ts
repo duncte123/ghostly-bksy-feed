@@ -72,12 +72,14 @@ const bannedText: string[] = [
   ' clitoris ',
   ' cock ',
   ' coon ',
+  ' cum ',
+  ' cumming ',
   ' cunt ',
   ' dick ',
   ' dildo ',
   ' dyke',
   ' fag ',
-  ' feck ',
+  ' faggot ',
   ' fellate ',
   ' fellatio ',
   ' felching ',
@@ -152,6 +154,7 @@ const matchUsers: string[] = [
 const bannedUsers: string[] = [
   'did:plc:23thhiqwpowmlelje4ft76br', // gam1ng.bsky.social (bot content)
   'did:plc:25vwhhzdpnaujzookpsqxlns', // lpx.bsky.social (low effort content)
+  'did:plc:uamgc5xgnuk4c5dfmikxgxcd', // speedrun-new.bsky.social (frequent automated content)
 ]
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
@@ -168,12 +171,14 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // cannot get TS to work with create.record.labels - fix later
         const plainTextLabels = JSON.stringify(create.record.labels ?? '{}')
 
+        // exclude labeled NSFW
         const postIsNsfw =
           plainTextLabels.includes('porn') ||
           plainTextLabels.includes('nudity') ||
           plainTextLabels.includes('sexual') ||
           plainTextLabels.includes('graphic-media')
 
+        // exclude posts without ALT text
         let allImagesHaveAltText = true
 
         if (create.record.embed?.images instanceof Array) {
@@ -183,6 +188,8 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
             }
           })
         }
+
+        // TODO: exclude replies from whitelisted accounts
 
         return (
           (matchText.some((term) => txt.includes(term)) ||
