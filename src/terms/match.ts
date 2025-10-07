@@ -88,6 +88,7 @@ const matchUsers: string[] = [
   'did:plc:mfmbxqdlvkunpb2i2rwdtvhn', // therun.bsky.social
   'did:plc:275rmae3bc63ib5pcsmmtw5d', // fastestfurs.com
   'did:plc:5f3tjhknxvpmjt2mazg7n57g', // bsgmarathon.bsky.social
+  'did:plc:2ubeu2kpsssx6bry4swly4ud', // steelcityspeedster.bsky.social
 ]
 
 export { matchPatterns, matchUsers, matchText }
