@@ -70,6 +70,7 @@ const bannedText: string[] = [
 const bannedUsers: string[] = [
   'did:plc:ju7elc27naswr6mnvpevfqxn', // sperezart.bsky.social (nsfw artist, sorry, trying to keep the feed clean)
   'did:plc:rypydv2x5sswveg6haa4vbrc', // evercras.bsky.social (nsfw artist, sorry, trying to keep the feed clean)
+  'did:plc:p6cxe24t5uywfs5rzozkkomq', // zeusai.bsky.social (AI Slop)
 ]
 
 export { bannedText, bannedUsers }
