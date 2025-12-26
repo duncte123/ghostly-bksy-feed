@@ -1,4 +1,4 @@
-# HiJumpBoots SpeedFeed
+# HiJumpBoots SpeedFeed (or well a fork, still need to update the readme)
 
 A fork of the ATProto Feed Generator (https://github.com/bluesky-social/feed-generator). This project has been modified to write to a persistent sqlite3 DB in the project's root.
 

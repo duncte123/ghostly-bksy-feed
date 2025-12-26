@@ -1,4 +1,9 @@
 const bannedText: string[] = [
+  // dp specific tags to block
+  '#pompouspep',
+  '#pompep',
+  // TODO: add other problematic ships (and sadly learn the names of those *sigh*)
+
   // obvious
   ' nsfw ',
   '#nsfw',
@@ -60,10 +65,7 @@ const bannedText: string[] = [
 
 // Exclude posts from these users
 const bannedUsers: string[] = [
-  'did:plc:23thhiqwpowmlelje4ft76br', // gam1ng.bsky.social (bot content)
-  'did:plc:25vwhhzdpnaujzookpsqxlns', // lpx.bsky.social (low effort content)
-  'did:plc:uamgc5xgnuk4c5dfmikxgxcd', // speedrun-new.bsky.social (frequent automated content)
-  'did:plc:rrlwqxpvjxqngeiia6idwce3', // speedrunbot.bsky.social (frequent automated content)
+  // Let's hope we never have to fill this list :)
 ]
 
 export { bannedText, bannedUsers }

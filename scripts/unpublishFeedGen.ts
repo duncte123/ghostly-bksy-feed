@@ -6,33 +6,24 @@ import inquirer from 'inquirer'
 
 const run = async () => {
   dotenv.config()
+  // YOUR bluesky handle
+  // Ex: user.bsky.social
+  const handle = 'im.going-g.host'
+
+  // YOUR bluesky password, or preferably an App Password (found in your client settings)
+  // Ex: abcd-1234-efgh-5678
+  const password = process.env.FEED_PASSWORD as string
+
+  // A short name for the record that will show in urls
+  // Lowercase with no spaces.
+  // Ex: whats-hot
+  const recordName = 'ghost-zone'
+
+  // optional custom service (null for our purposes)
+  const service = null
 
   const answers = await inquirer
     .prompt([
-      {
-        type: 'input',
-        name: 'handle',
-        message: 'Enter your Bluesky handle',
-        required: true,
-      },
-      {
-        type: 'password',
-        name: 'password',
-        message: 'Enter your Bluesky password (preferably an App Password):',
-      },
-      {
-        type: 'input',
-        name: 'service',
-        message: 'Optionally, enter a custom PDS service to sign in with:',
-        default: 'https://bsky.social',
-        required: false,
-      },
-      {
-        type: 'input',
-        name: 'recordName',
-        message: 'Enter the short name for the record you want to delete:',
-        required: true,
-      },
       {
         type: 'confirm',
         name: 'confirm',
@@ -41,7 +32,7 @@ const run = async () => {
       }
     ])
 
-  const { handle, password, recordName, service, confirm } = answers
+  const { confirm } = answers
 
   if (!confirm) {
     console.log('Aborting...')
@@ -52,7 +43,7 @@ const run = async () => {
   const agent = new AtpAgent({ service: service ? service : 'https://bsky.social' })
   await agent.login({ identifier: handle, password })
 
-  await agent.api.com.atproto.repo.deleteRecord({
+  await agent.com.atproto.repo.deleteRecord({
     repo: agent.session?.did ?? '',
     collection: ids.AppBskyFeedGenerator,
     rkey: recordName,

@@ -145,3 +145,5 @@ db.sqlite
 # intellij
 .idea/
 *.iml
+
+docker-compose.override.yml

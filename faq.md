@@ -1,6 +1,6 @@
-# What is the HiJumpBoots Speedfeed?
+# What is The Ghost Zone?
 
-The SpeedFeed is a custom BlueSky feed containing posts about video game speedrunning events, personalities, and culture.
+The Ghost Zone is a custom BlueSky feed containing posts about Danny Phantom related art, personalities, and culture.
 
 # What are the rules?
 
@@ -11,8 +11,8 @@ The SpeedFeed is a custom BlueSky feed containing posts about video game speedru
 
 # What if I want my posts excluded from the feed?
 
-Contact @jayena.hijumpboots.com on BlueSky for account exclusions.
+Contact @im.going-g.host on BlueSky for account exclusions.
 
 # What if the feed is broken?
 
-Report the issue to @jayena.hijumpboots.com.
+Report the issue to @im.going-g.host.
