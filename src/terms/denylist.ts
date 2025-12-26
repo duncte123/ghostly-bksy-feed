@@ -61,11 +61,15 @@ const bannedText: string[] = [
   ' vagina ',
   ' wank ',
   ' whore ',
+  '#yaoi',
+  '#r34',
+  '#rule43',
 ]
 
 // Exclude posts from these users
 const bannedUsers: string[] = [
-  // Let's hope we never have to fill this list :)
+  'did:plc:ju7elc27naswr6mnvpevfqxn', // sperezart.bsky.social (nsfw artist, sorry, trying to keep the feed clean)
+  'did:plc:rypydv2x5sswveg6haa4vbrc', // evercras.bsky.social (nsfw artist, sorry, trying to keep the feed clean)
 ]
 
 export { bannedText, bannedUsers }

@@ -4,6 +4,7 @@
 const matchText: string[] = [
   // obvious
   '#dannyphantom',
+  '#danny_phantom',
   // characters
   '#dannyfenton',
   '#wesweston',
