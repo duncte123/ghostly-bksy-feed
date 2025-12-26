@@ -31,6 +31,7 @@ const matchPatterns: RegExp[] = [
 
 // Accounts that are primarily danny phantom content, congrats if you made it in!
 const matchUsers: string[] = [
+  'did:plc:f6yjyxxw6ottpnneidcgszxn', // davidkaufman23.bsky.social (ofc danny himself)
   'did:plc:jr6p5wyegabd6lihdwwmm746', // pichikui.bsky.social (mainly for testing this)
 ]
 
