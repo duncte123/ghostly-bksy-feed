@@ -30,13 +30,14 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // exclude posts without ALT text
         let allImagesHaveAltText = true
 
-        if (create.record.embed?.images instanceof Array) {
+        // Disable alt checks for now, will re-enable when this becomes a problem
+        /*if (create.record.embed?.images instanceof Array) {
           create.record.embed.images.map((image) => {
             if (!image.alt) {
               allImagesHaveAltText = false
             }
           })
-        }
+        }*/
 
         // TODO: exclude replies from whitelisted accounts
 
