@@ -20,7 +20,7 @@ const matchText: string[] = [
   // Series
   '#5yl',
   '#fiveyearslater',
-  '#agit',
+  '#agit ',
   '#aglitchintime',
   '#fairgame',
 ]
