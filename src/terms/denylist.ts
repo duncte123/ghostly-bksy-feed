@@ -79,6 +79,8 @@ const bannedUsers: string[] = [
   'did:plc:vgvx54edh36hak6deqpz3xt5', // jac26qq308.bsky.social (untagged nsfw artist, sorry, trying to keep the feed clean)
   'did:plc:p6cxe24t5uywfs5rzozkkomq', // zeusai.bsky.social (AI Slop)
   'did:plc:m7o4sqt7j6n6pht5vnkey77h', // emfres1.bsky.social (untagged drug abuse content)
+  'did:plc:rwlypgeog55lvyfnaa6uscsz', // tvileplume.bsky.social (NSFW)
+  'did:plc:yv7ewqwhsslkbxtjilx4ruzg', // strangecutlery.bsky.social (NSFW)
 ]
 
 export { bannedText, bannedUsers }
