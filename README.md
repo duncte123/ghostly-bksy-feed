@@ -1,6 +1,6 @@
-# HiJumpBoots SpeedFeed (or well a fork, still need to update the readme)
+# The Ghost Zone Bluesky Feed
 
-A fork of the ATProto Feed Generator (https://github.com/bluesky-social/feed-generator). This project has been modified to write to a persistent sqlite3 DB in the project's root.
+A fork of the SpeedFeed (https://github.com/goth-uhaul/hjb-speedfeed). I really liked how the SpeedFeed worked and offered the functionality that I wanted so I forked it and turned it into a ghost zone.
 
 # Keywords
 
