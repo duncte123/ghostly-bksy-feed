@@ -4,6 +4,10 @@ import { AppContext } from './config'
 const makeRouter = (ctx: AppContext) => {
   const router = express.Router()
 
+  router.get('/', (_req, res) => {
+    res.redirect(302, 'https://bsky.app/profile/im.going-g.host/feed/ghost-zone');
+  });
+
   router.get('/.well-known/did.json', (_req, res) => {
     if (!ctx.cfg.serviceDid.endsWith(ctx.cfg.hostname)) {
       return res.sendStatus(404)
