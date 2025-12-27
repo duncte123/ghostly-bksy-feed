@@ -1,6 +1,3 @@
-// main problem to get around: the slang use of 'speedrun' to denote doing something unrelated to speedrunning fast
-// ex. Lowtax speedrun, christmas shopping speedrun, etc
-
 const matchText: string[] = [
   // obvious
   '#dannyphantom',
@@ -16,17 +13,18 @@ const matchText: string[] = [
   '#vladmasters',
   '#vladplasmius',
   // Full names non hashtags
-  'Danny Phantom',
+  'danny phantom',
   // Series
   '#5yl',
   '#fiveyearslater',
-  '#aglitchintime',
-  '#fairgame',
 ]
 
 const matchPatterns: RegExp[] = [
   //just trying something
   /danny phantom/im,
+  // Word boundaries for regexes that might match more than they should (thanks #fairgame2026film)
+  /#fairgame\b/im,
+  /#aglitchintime\b/im,
 ]
 
 // Accounts that are primarily danny phantom content, congrats if you made it in!
