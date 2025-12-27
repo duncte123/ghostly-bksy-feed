@@ -28,11 +28,11 @@ const run = async () => {
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
   const description =
-    'Everything Danny Phantom related! Also known as the fandom that embraces the definition of vivisection. For guaranteed inclusion, use #DannyPhantom. FAQ: https://github.com/duncte123/ghostly-bksy-feed/blob/main/faq.md.'
+    'Everything Danny Phantom related! Also known as the fandom that embraces the definition of vivisection. For guaranteed inclusion, use #DannyPhantom. FAQ: https://github.com/duncte123/ghostly-bksy-feed/blob/main/faq.md. Icon by @veidara.bsky.social'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
-  const avatar: string = 'avatar.jpg'
+  const avatar: string = 'ghost_zone_by_vey.jpg'
 
   // Is this a video-only feed?
   const videoOnly: boolean = false
