@@ -28,24 +28,28 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
           plainTextLabels.includes('graphic-media')
 
         // exclude posts without ALT text
-        let allImagesHaveAltText = true
+        let imageAltsMatchTerms = false
 
-        // Disable alt checks for now, will re-enable when this becomes a problem
-        /*if (create.record.embed?.images instanceof Array) {
+        if (create.record.embed?.images instanceof Array) {
           create.record.embed.images.map((image) => {
-            if (!image.alt) {
-              allImagesHaveAltText = false
+            if (image.alt) {
+              // TODO: possibly extract this into a method
+              imageAltsMatchTerms ||= ((
+                matchText.some((term) => image.alt.includes(term)) ||
+                matchPatterns.some((pattern) => pattern.test(image.alt))
+                // Make sure to exclude banned terms from image alts as well
+              ) && !bannedText.some((term) => image.alt.includes(term)));
             }
           })
-        }*/
+        }
 
         // TODO: exclude replies from whitelisted accounts
 
         return (
           (matchText.some((term) => txt.includes(term)) ||
             matchPatterns.some((pattern) => pattern.test(txt)) ||
-            matchUsers.includes(create.author)) &&
-          allImagesHaveAltText &&
+            matchUsers.includes(create.author) || imageAltsMatchTerms) &&
+          // allImagesHaveAltText &&
           !bannedUsers.includes(create.author) &&
           !bannedText.some((term) => txt.includes(term)) &&
           !postIsNsfw
