@@ -30,6 +30,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // exclude posts without ALT text
         let imageAltsMatchTerms = false
 
+        // TODO: fix this algo: post did not get through: https://bsky.app/profile/scarletghostx.bsky.social/post/3mb5exu5sbk26
         if (create.record.embed?.images instanceof Array) {
           create.record.embed.images.map((image) => {
             if (image.alt) {
@@ -48,7 +49,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         return (
           (matchText.some((term) => txt.includes(term)) ||
             matchPatterns.some((pattern) => pattern.test(txt)) ||
-            matchUsers.includes(create.author) || imageAltsMatchTerms) &&
+            matchUsers.includes(create.author)/* || imageAltsMatchTerms*/) &&
           // allImagesHaveAltText &&
           !bannedUsers.includes(create.author) &&
           !bannedText.some((term) => txt.includes(term)) &&
