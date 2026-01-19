@@ -15,6 +15,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
     const postsToCreate = ops.posts.creates
       .filter((create) => {
+        // Remove replies from whitelisted users
+        if (create.record.reply && matchUsers.includes(create.author)) {
+          return false;
+        }
+
         const txt = create.record.text.replace('-', ' ').toLowerCase()
 
         // cannot get TS to work with create.record.labels - fix later
@@ -30,7 +35,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         // exclude posts without ALT text
         let imageAltsMatchTerms = false
 
-        // TODO: fix this algo: post did not get through: https://bsky.app/profile/scarletghostx.bsky.social/post/3mb5exu5sbk26
+        // TODO: fix this algo: post did not get through: https://bsky.app/profile/scarletghostx.bsky.social/post/3mb5exu5sbk26 (i can see it in the db tho??? idk what bluesky is doing anymore with feeds)
         if (create.record.embed?.images instanceof Array) {
           create.record.embed.images.map((image) => {
             if (image.alt) {
@@ -43,8 +48,6 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
             }
           })
         }
-
-        // TODO: exclude replies from whitelisted accounts
 
         return (
           (matchText.some((term) => txt.includes(term)) ||

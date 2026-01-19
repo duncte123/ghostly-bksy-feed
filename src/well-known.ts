@@ -1,9 +1,8 @@
 import express from 'express'
 import { AppContext } from './config'
 import { fetchDid } from './util/bskyApiUtils'
-import { Database } from './db'
 
-const makeRouter = (ctx: AppContext, db: Database) => {
+const makeRouter = (ctx: AppContext) => {
   const router = express.Router()
 
   router.get('/', (_req, res) => {
@@ -11,7 +10,7 @@ const makeRouter = (ctx: AppContext, db: Database) => {
   });
 
   router.delete('/post', express.json(), async (req, res) => {
-    console.log('Got post delte request', JSON.stringify(req.body))
+    console.log('Got post delete request', JSON.stringify(req.body))
 
     if (!req.body || !req.body.token || !req.body.username || !req.body.postId) {
       return res.sendStatus(404);
@@ -31,7 +30,7 @@ const makeRouter = (ctx: AppContext, db: Database) => {
 
     const postUri = `at://${finalUsername}/app.bsky.feed.post/${postId}`;
 
-    await db.deleteFrom('post')
+    await ctx.db.deleteFrom('post')
       .where('uri', '=', postUri)
       .execute();
 
