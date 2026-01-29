@@ -81,7 +81,8 @@ const bannedUsers: string[] = [
   'did:plc:m7o4sqt7j6n6pht5vnkey77h', // emfres1.bsky.social (untagged drug abuse content)
   'did:plc:rwlypgeog55lvyfnaa6uscsz', // tvileplume.bsky.social (NSFW)
   'did:plc:yv7ewqwhsslkbxtjilx4ruzg', // strangecutlery.bsky.social (NSFW)
-  'did:plc:qu4rcycutcraiz7354ch3vwy', // ainpostolo.bsky.social AI
+  'did:plc:qu4rcycutcraiz7354ch3vwy', // ainpostolo.bsky.social (AI)
+  'did:plc:vl72yp2n6m2rawj7xncg65qn', // dipperoyd.bsky.social (untagged adult content, pompep diaper fetish 🤢)
 ]
 
 export { bannedText, bannedUsers }
