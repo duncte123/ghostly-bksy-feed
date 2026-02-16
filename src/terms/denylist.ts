@@ -83,6 +83,7 @@ const bannedUsers: string[] = [
   'did:plc:yv7ewqwhsslkbxtjilx4ruzg', // strangecutlery.bsky.social (NSFW)
   'did:plc:qu4rcycutcraiz7354ch3vwy', // ainpostolo.bsky.social (AI)
   'did:plc:vl72yp2n6m2rawj7xncg65qn', // dipperoyd.bsky.social (untagged adult content, pompep diaper fetish 🤢)
+  'did:plc:qenjkbfahqijcqyp4x7cjkwx', // kyatoai.bsky.social (AI)
 ]
 
 export { bannedText, bannedUsers }
