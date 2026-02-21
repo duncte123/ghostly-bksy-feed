@@ -20,6 +20,10 @@ export abstract class FirehoseSubscriptionBase {
     this.sub = new Subscription({
       service: service,
       method: ids.ComAtprotoSyncSubscribeRepos,
+      onReconnectError: (error, n, initialSetup) => {
+        console.error(`Failed to reconnect to ws, existing process (n=${n}, initialSetup=${initialSetup})`, error);
+        process.exit(-1);
+      },
       getParams: () => this.getCursor(),
       validate: (value: unknown) => {
         try {
