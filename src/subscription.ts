@@ -36,7 +36,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         let imageAltsMatchTerms = false
 
         // TODO: fix this algo: post did not get through: https://bsky.app/profile/scarletghostx.bsky.social/post/3mb5exu5sbk26 (i can see it in the db tho??? idk what bluesky is doing anymore with feeds)
-        if (create.record.embed?.images instanceof Array) {
+        if (create.record.embed?.images && Array.isArray(create.record.embed.images)) {
           create.record.embed.images.map((image) => {
             if (image.alt) {
               // TODO: possibly extract this into a method
@@ -52,7 +52,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         return (
           (matchText.some((term) => txt.includes(term)) ||
             matchPatterns.some((pattern) => pattern.test(txt)) ||
-            matchUsers.includes(create.author)/* || imageAltsMatchTerms*/) &&
+            matchUsers.includes(create.author) || imageAltsMatchTerms) &&
           // allImagesHaveAltText &&
           !bannedUsers.includes(create.author) &&
           !bannedText.some((term) => txt.includes(term)) &&
