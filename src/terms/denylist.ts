@@ -84,6 +84,7 @@ const bannedUsers: string[] = [
   'did:plc:qu4rcycutcraiz7354ch3vwy', // ainpostolo.bsky.social (AI)
   'did:plc:vl72yp2n6m2rawj7xncg65qn', // dipperoyd.bsky.social (untagged adult content, pompep diaper fetish 🤢)
   'did:plc:qenjkbfahqijcqyp4x7cjkwx', // kyatoai.bsky.social (AI)
+  'did:plc:aaprk55vkrhb5og4ev4cwe3u', // hot21radio.bsky.social (Radio BS, spam)
 ]
 
 export { bannedText, bannedUsers }
