@@ -23,7 +23,7 @@ const run = async () => {
 
   // A display name for your feed
   // Ex: What's Hot
-  const displayName = '👻 The Ghost zone'
+  const displayName = '👻 Danny\'s Ghost Zone'
 
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network

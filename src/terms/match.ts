@@ -4,6 +4,7 @@ const matchText: string[] = [
   '#danny_phantom',
   // characters
   '#dannyfenton',
+  '#danny_fenton',
   '#wesweston',
   '#sammanson',
   '#tuckerfoley',
@@ -23,7 +24,7 @@ const matchPatterns: RegExp[] = [
   //just trying something
   /danny phantom/im,
   // Word boundaries for regexes that might match more than they should (thanks #fairgame2026film)
-  /#fairgame\b/im,
+  // /#fairgame\b/im,
   /#aglitchintime\b/im,
 ]
 
