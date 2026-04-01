@@ -18,6 +18,7 @@ const matchText: string[] = [
   // Series
   '#5yl',
   '#fiveyearslater',
+  '#dannypocalypse',
 ]
 
 const matchPatterns: RegExp[] = [
@@ -25,6 +26,7 @@ const matchPatterns: RegExp[] = [
   /danny phantom/im,
   // Word boundaries for regexes that might match more than they should (thanks #fairgame2026film)
   // /#fairgame\b/im,
+  /#dannypocalypse\b/im,
   /#aglitchintime\b/im,
 ]
 
