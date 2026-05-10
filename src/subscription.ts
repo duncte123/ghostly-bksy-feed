@@ -23,14 +23,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         const txt = create.record.text.replace('-', ' ').toLowerCase()
 
         // cannot get TS to work with create.record.labels - fix later
-        const plainTextLabels = JSON.stringify(create.record.labels ?? '{}')
-
-        // exclude labeled NSFW
-        const postIsNsfw =
-          plainTextLabels.includes('porn') ||
-          plainTextLabels.includes('nudity') ||
-          plainTextLabels.includes('sexual') ||
-          plainTextLabels.includes('graphic-media')
+        // const plainTextLabels = JSON.stringify(create.record.labels ?? '{}')
 
         // exclude posts without ALT text
         let imageAltsMatchTerms = false
@@ -55,8 +48,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
             matchUsers.includes(create.author) || imageAltsMatchTerms) &&
           // allImagesHaveAltText &&
           !bannedUsers.includes(create.author) &&
-          !bannedText.some((term) => txt.includes(term)) &&
-          !postIsNsfw
+          !bannedText.some((term) => txt.includes(term))
         )
       }) // validation function
       .map((create) => {
