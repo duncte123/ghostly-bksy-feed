@@ -87,6 +87,7 @@ const bannedUsers: string[] = [
   'did:plc:aaprk55vkrhb5og4ev4cwe3u', // hot21radio.bsky.social (Radio BS, spam)
   'did:plc:axj2c63folkxtbi6dmggjxaz', // dreamoblivion.bsky.social (Gross irl untagged diaper fetish content)
   'did:plc:ccxgdotj62v2wdejvbs53fzs', // thedauphin.bsky.social (IRL NSFW)
+  'did:plc:czt5y4mprpzhelwqamzd4did', // zestybaron.bsky.social (AI Generated imagery)
 ]
 
 export { bannedText, bannedUsers }
