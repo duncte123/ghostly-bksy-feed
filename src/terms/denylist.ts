@@ -89,6 +89,7 @@ const bannedUsers: string[] = [
   'did:plc:ccxgdotj62v2wdejvbs53fzs', // thedauphin.bsky.social (IRL NSFW)
   'did:plc:czt5y4mprpzhelwqamzd4did', // zestybaron.bsky.social (AI Generated imagery)
   'did:plc:mkzkbtnitw7qlfvidl3u5725', // kennythebigbaby.bsky.social (irl untagged diaper fetish content)
+  'did:plc:xtbeqbap6v25mueogmt3n4hg', // lucharobot.bsky.social (Bot)
 ]
 
 export { bannedText, bannedUsers }
